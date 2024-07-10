@@ -11,6 +11,12 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.11.0)(tailwindcss@3.4.4)
+  '@fontsource-variable/onest':
+    specifier: ^5.0.4
+    version: 5.0.4
+  '@justinribeiro/lite-youtube':
+    specifier: ^1.5.0
+    version: 1.5.0
   astro:
     specifier: ^4.11.0
     version: 4.11.0(typescript@5.4.5)
@@ -648,6 +654,10 @@ packages:
     dev: false
     optional: true
 
+  /@fontsource-variable/onest@5.0.4:
+    resolution: {integrity: sha512-AgdtsALwfkuLuL3dMCCX/ag27ho7yMKNIrkX5AKYKsPDm5u6mrTZ0LcO9jtMI7Z4ant7Huf9c2QtPdK3az/mow==}
+    dev: false
+
   /@img/sharp-darwin-arm64@0.33.4:
     resolution: {integrity: sha512-p0suNqXufJs9t3RqLBO6vvrgr5OhgbWp76s5gTRvdmxmuv9E1rcaqGUsl3l4mKVmXPkTkTErXediAui4x+8PSA==}
     engines: {glibc: '>=2.26', node: ^18.17.0 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0', yarn: '>=3.2.0'}
@@ -880,6 +890,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /@justinribeiro/lite-youtube@1.5.0:
+    resolution: {integrity: sha512-TU92RKtz9BI9PRYrVwDIUsnFadLZtqRKWl1ZOdbxb7roJDb8Dd/xURllAsLEmCg6oJNyhXlVa5RsnUc0EKd8Cw==}
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
