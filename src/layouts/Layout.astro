@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import '@fontsource-variable/onest';
 
@@ -18,23 +19,41 @@ const { currentLocale } = Astro
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&display=swap" rel="stylesheet">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@100..900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+		
 		<title>{title}</title>
+		
+		<slot name="preload" />
+		
+		<ViewTransitions />
 	</head>
 	<body>
 		<Header />
 		<slot />
 	</body>
 </html>
+
 <style is:global>
 	:root {
 		color-scheme: dark;
 	}
-	
+		
 	html {
 		font-family: 'Onest Variable', sans-serif;
 		background: #151a36;
 	}
-
+	
 	p {
 		color: rgba(255, 255, 255, 0.9);
 		line-height: 1.4;
@@ -64,6 +83,4 @@ const { currentLocale } = Astro
           backdrop-filter: blur(10px);
         }
 	}
-	 
-	
 </style>

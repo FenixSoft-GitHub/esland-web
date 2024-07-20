@@ -1,5 +1,11 @@
 ---
 import Logo from "@/components/Logo.astro";
+import Button from "@/components/Button";
+
+import { getI18N } from "@/i18n/index"
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
 ---
 
 <header id="header-nav" class="fixed w-screen py-4 z-50 top-0 px-8 lg:px-0">
@@ -10,12 +16,12 @@ import Logo from "@/components/Logo.astro";
         <nav class="col-span-1 justify-self-center">
             <ul class="flex gap-4">
                 <li>
-                    <a class=" hover:underline" href="#">
+                    <a class=" hover:underline" href="/info/">
                         INFO
                     </a>
                 </li>
                 <li>
-                    <a class=" hover:underline" href="#">
+                    <a class=" hover:underline" href="/archivo/">
                         ARCHIVO
                     </a>
                 </li>
@@ -26,12 +32,11 @@ import Logo from "@/components/Logo.astro";
                 </li>
             </ul>
         </nav>
-        <a 
-            class="border rounded-full inline-block border-white px-4 py-2
-            justify-self-end hover:bg-white hover:text-[#151a36] duration-300" 
-            href="#"
+        <Button
+            className="md:py-2 md:ml-auto md:text-base lg:text-base"
+            url="https://drive.google.com/file/d/1D7IvIqMyqAoG58fuk8bc0JvhAmrWBbOK/view"
         >
-            ESLAND: EL DOCUMENTAL
-        </a>
+            {i18n.HEADER_BUTTON}
+        </Button>
     </div>
 </header>

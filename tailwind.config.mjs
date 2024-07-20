@@ -4,7 +4,26 @@ import animations from 'tailwindcss-animated'
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+        		tomaso: ["Tomaso", "sans-serif"],
+        		jura: ["Jura", "sans-serif"],
+				lexend: ["Lexend Zetta", "sans-serif"],
+				syncopate: ["Syncopate",, "sans-serif"],
+      		},
+      		colors: {
+        		primary: "rgb(253 224 71);",
+      		},
+		},
 	},
-	plugins: [animations],
+	plugins: [
+		animations,
+		({ addComponents }) => {
+      		addComponents({
+        		".cp-v": {
+          			clipPath: "polygon(0 0, 100% 0, 100% 85%, 50% 100%, 50% 100%, 0 85%)",
+        		},
+      		});
+    	},
+	],
 }

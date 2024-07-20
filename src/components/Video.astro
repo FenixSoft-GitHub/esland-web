@@ -1,18 +1,58 @@
-<div class="w-full relative">
-    <img
-        class="absolute top-10 z-10 w-[900px] left-0 right-0 m-auto" 
-        src="/logo-home.svg" 
-        alt="Esland - Premios a la comunidad hispanohablante de Streaming"
+---
+import { getI18N } from "@/i18n/";
+import Logo from "./Logo.astro";
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<div class="relative h-dvh w-full max-w-[100vw] md:aspect-video md:h-[80vh] xl:h-full">
+    <div
+        class="absolute inset-0 h-full justify-center z-10 m-auto flex flex-col items-center w-full"
     >
+        <section
+            class="absolute z-10 animate-fade-up flex justify-center items-center gap-8 flex-col"
+        >
+            <h1
+                class="flex items-center gap-5 text-4xl md:text-6xl lg:gap-14 lg:text-7xl font-lexend font-light"
+            >
+                <span>E</span>
+                <span>S</span>
+                <span>L</span>
+                <Logo
+                class="h-9 w-auto md:h-[3.75rem] lg:h-20 scale-150"
+                aria-label="A"
+                />
+                <span>N</span>
+                <span>D</span>
+            </h1>
+
+            <p
+                class="subtitle text-xl lg:text-xl text-center text-wrap uppercase font-jura px-4"
+            >
+                {i18n.HERO_SUBTITLE}
+            </p>
+
+        <!-- <Button
+            target="_self"
+            className="text-blue-950 animate-fade-up bg-white"
+            url={translatePath('/vota/')}
+        >
+            {i18n.VIDEO_BUTTON}
+        </Button> -->
+        </section>
+
+    </div>
+
     <video 
-        class="w-full h-screen object-cover object-top animate-ease-in-out animate-fade-down animate-duration-1000"
+        class="cp-v w-full h-screen object-cover object-top animate-ease-in-out animate-fade-down animate-duration-[2s]"
         src="/public/video.mp4" 
         autoplay 
         loop 
         muted
-        style="clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 50% 100%, 0% 85%);"
     >
     </video>
+    
     <video 
         class=" absolute -bottom-48 blur-3xl -z-40"
         src="/public/video.mp4" 
@@ -21,4 +61,39 @@
         muted
     >
     </video>
+
 </div>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const firstVideo = document.querySelector("#main-video") as HTMLMediaElement
+
+    if (firstVideo) {
+      const videos = document.querySelectorAll(
+        ".video"
+      ) as NodeListOf<HTMLMediaElement>
+
+      if (firstVideo.readyState >= 3) {
+        videos.forEach((videoEl) => {
+          videoEl.classList.remove("hidden")
+          videoEl.classList.add("animate-fade")
+        })
+
+        return
+      }
+
+      firstVideo.addEventListener("loadeddata", () => {
+        videos.forEach((videoEl) => {
+          videoEl.classList.remove("hidden")
+          videoEl.classList.add("animate-fade")
+        })
+      })
+    }
+  })
+</script>
+
+<style>
+    .subtitle {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    }
+</style>
