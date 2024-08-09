@@ -27,9 +27,9 @@ export default function Button({ children, onClick, url, target, className, ...r
       no-underline
       px-2
       py-3
-      border
+      border-2
       border-solid
-      border-white
+      border-white/50
       rounded-full
       uppercase
       ${styles.button}

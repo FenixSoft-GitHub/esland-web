@@ -26,9 +26,9 @@ const translatePath = useTranslatedPath(lang);
       aria-label={i18n.HEADER.LOGO}
     >
       <Logo
-        class="absolute w-10 m-auto blur-sm opacity-0 transition-opacity duration-300 hover:opacity-100"
+        class="absolute w-14 m-auto blur-sm opacity-0 transition-opacity duration-300 hover:opacity-100"
       />
-      <Logo class="w-10" />
+      <Logo class="w-14" />
     </HeaderLink>
     <nav
       id="header-menu"
@@ -54,6 +54,8 @@ const translatePath = useTranslatedPath(lang);
         <CloseIcon />
       </a>
     </nav>
-    <a href="#header-menu" class="md:hidden"><MenuIcon /></a>
+    <a href="#header-menu" class="md:hidden">
+      <MenuIcon />
+    </a>
   </div>
 </header>
