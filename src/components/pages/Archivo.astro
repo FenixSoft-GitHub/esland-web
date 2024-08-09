@@ -1,17 +1,18 @@
 ---
-import { getI18N } from "@/i18n/"
 import Layout from "@/layouts/Layout.astro";
 import HeroContainer from "@/components/HeroContainer.astro";
-import Button from "../Button";
-import Numeros from "../Numeros.astro";
+import Button from "@/components/Button.tsx";
+import Editions from "../Editions";
+import { getI18N } from "@/i18n/";
 
+const edicion = "2"
 const { currentLocale } = Astro
 const i18n = getI18N({ currentLocale })
 ---
 
 <Layout 
 	title=`${i18n.SEO.ARCHIVO_TITLE}&nbsp;${new Date().getFullYear()}`
-  	description={i18n.SEO.ARCHIVO_DESCRIPTION}
+	description={i18n.SEO.ARCHIVO_DESCRIPTION}
 >
 	<HeroContainer img="/archivo-background.webp">
 		<h1 class="lg:text-5xl text-4xl text-center uppercase mb-20 font-syncopate tracking-wider">
@@ -26,6 +27,6 @@ const i18n = getI18N({ currentLocale })
     	</Button>
 	</HeroContainer>
 	<main class="pb-24">
-    	<Numeros />
+    	<Editions i18n={i18n} client:load/>
   	</main>
 </Layout>

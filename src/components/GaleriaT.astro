@@ -1,0 +1,47 @@
+---
+import { getI18N } from "@/i18n/"
+import 'photoswipe/style.css';
+import Button from './Button';
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<div class="grid grid-cols-3 max-w-6xl gap-8 mx-auto py-20" id="gallery">
+    {
+        Array.from({ length: 12 }).map((_, i) => (
+            <a 
+                class=" group rounded-xl hover:scale-105 transition-all relative"
+                href={`/archivo-page/first-edition/gallery/img-${i + 1}.webp`}
+                target="_blank"
+                >
+                <img
+                    class="rounded-xl object-cover w-full h-auto"
+                    loading="lazy" 
+                    src={`/archivo-page/first-edition/gallery/img-${i + 1}.webp`} 
+                    alt="Fotografía de los premios ESLAND"
+                />
+                <img
+                    class="blur-md opacity-0 group-hover:opacity-100 absolute inset-0 transition contrast-150 -z-10 object-cover"
+                    loading="lazy"  
+                    src={`/archivo-page/first-edition/gallery/img-${i + 1}.webp`} 
+                    alt="Imagen con efecto blur para hacer de sombra de una fotografía de los premios ESLAND"
+                />
+            </a>
+        ))
+    }
+</div>
+
+<div class="text-center mx-auto">
+    <Button id="load-more" url="#">{i18n.GALLERY.LOAD_MORE}</Button>
+</div>
+
+<script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '#gallery',
+        children: 'a',
+        pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+</script>
